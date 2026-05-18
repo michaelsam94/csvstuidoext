@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-label="CSV Studio">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f766e"/>
+      <stop offset="100%" stop-color="#2dd4bf"/>
+    </linearGradient>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#047857"/>
+      <stop offset="100%" stop-color="#065f46"/>
+    </linearGradient>
+    <filter id="shadow" x="-8%" y="-8%" width="116%" height="116%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#065f46" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="128" height="128" rx="24" fill="url(#bg)"/>
+
+  <!-- Document card -->
+  <g filter="url(#shadow)">
+    <rect x="22" y="18" width="76" height="88" rx="8" fill="#f8fffe"/>
+    <path d="M 86 18 L 98 30 L 98 18 Z" fill="#ccfbf1"/>
+    <path d="M 86 18 L 98 30 L 86 30 Z" fill="#99f6e4" opacity="0.6"/>
+  </g>
+
+  <!-- Spreadsheet grid (vector) -->
+  <g transform="translate(30, 34)">
+    <!-- Header row -->
+    <rect x="0" y="0" width="60" height="14" rx="2" fill="url(#headerGrad)"/>
+    <line x1="20" y1="0" x2="20" y2="56" stroke="#a7f3d0" stroke-width="1.5"/>
+    <line x1="40" y1="0" x2="40" y2="56" stroke="#a7f3d0" stroke-width="1.5"/>
+    <line x1="0" y1="14" x2="60" y2="14" stroke="#a7f3d0" stroke-width="1.5"/>
+
+    <!-- Row dividers -->
+    <line x1="0" y1="28" x2="60" y2="28" stroke="#a7f3d0" stroke-width="1.2"/>
+    <line x1="0" y1="42" x2="60" y2="42" stroke="#a7f3d0" stroke-width="1.2"/>
+
+    <!-- Data cells -->
+    <rect x="2" y="16" width="16" height="10" rx="1.5" fill="#10b981" opacity="0.9"/>
+    <rect x="22" y="16" width="16" height="10" rx="1.5" fill="#34d399" opacity="0.85"/>
+    <rect x="42" y="16" width="16" height="10" rx="1.5" fill="#10b981" opacity="0.75"/>
+
+    <rect x="2" y="30" width="16" height="10" rx="1.5" fill="#34d399" opacity="0.8"/>
+    <rect x="22" y="30" width="16" height="10" rx="1.5" fill="#10b981" opacity="0.7"/>
+    <rect x="42" y="30" width="16" height="10" rx="1.5" fill="#34d399" opacity="0.75"/>
+
+    <rect x="2" y="44" width="16" height="10" rx="1.5" fill="#10b981" opacity="0.65"/>
+    <rect x="22" y="44" width="36" height="10" rx="1.5" fill="#34d399" opacity="0.6"/>
+
+    <!-- Row index column hint -->
+    <rect x="-8" y="16" width="6" height="38" rx="1" fill="#a7f3d0" opacity="0.55"/>
+    <circle cx="-5" cy="21" r="1.2" fill="#065f46" opacity="0.5"/>
+    <circle cx="-5" cy="35" r="1.2" fill="#065f46" opacity="0.5"/>
+    <circle cx="-5" cy="49" r="1.2" fill="#065f46" opacity="0.5"/>
+  </g>
+
+  <!-- Comma accent (CSV) -->
+  <text x="94" y="108" font-family="ui-sans-serif, system-ui, sans-serif" font-size="22" font-weight="700"
+        fill="#f8fffe" opacity="0.95">,</text>
+</svg>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="{{styleUri}}" />
+  <title>CSV Studio</title>
+</head>
+<body>
+  <div id="app">
+    <header id="toolbar" class="toolbar" role="toolbar" aria-label="CSV Studio toolbar"></header>
+    <div id="filter-bar" class="filter-bar hidden" role="search"></div>
+    <div id="grid-wrap" class="grid-wrap">
+      <div id="virtual-top" class="virtual-spacer"></div>
+      <div id="grid-scroll" class="grid-scroll">
+        <table id="grid" class="grid" role="grid">
+          <thead id="grid-head"></thead>
+          <tbody id="grid-body"></tbody>
+        </table>
+      </div>
+      <div id="virtual-bottom" class="virtual-spacer"></div>
+    </div>
+    <footer id="status-bar" class="status-bar" role="status"></footer>
+    <aside id="find-panel" class="find-panel hidden" aria-label="Find and replace"></aside>
+  </div>
+  <script src="{{scriptUri}}"></script>
+</body>
+</html>

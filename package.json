@@ -1,0 +1,249 @@
+{
+  "name": "csv-studio",
+  "displayName": "CSV Studio",
+  "description": "View and edit CSV files as interactive spreadsheets",
+  "version": "0.1.0",
+  "license": "MIT",
+  "publisher": "michaelsam94",
+  "icon": "icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/michaelsam94/csvstuidoext.git"
+  },
+  "homepage": "https://github.com/michaelsam94/csvstuidoext",
+  "bugs": {
+    "url": "https://github.com/michaelsam94/csvstuidoext/issues"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Data Science",
+    "Formatters",
+    "Visualization"
+  ],
+  "activationEvents": [
+    "onLanguage:csv",
+    "onCustomEditor:csvStudio.csvEditor"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "csv",
+        "extensions": [".csv"],
+        "aliases": ["CSV"]
+      }
+    ],
+    "customEditors": [
+      {
+        "viewType": "csvStudio.csvEditor",
+        "displayName": "CSV Studio",
+        "selector": [
+          { "filenamePattern": "*.csv" },
+          { "filenamePattern": "*.tsv" }
+        ],
+        "priority": "default"
+      }
+    ],
+    "commands": [
+      {
+        "command": "csvStudio.openFile",
+        "title": "CSV Studio: Open as CSV Studio",
+        "icon": "$(table)"
+      },
+      {
+        "command": "csvStudio.reload",
+        "title": "CSV Studio: Reload",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "csvStudio.exportCsv",
+        "title": "CSV Studio: Export CSV",
+        "icon": "$(export)"
+      },
+      {
+        "command": "csvStudio.exportJson",
+        "title": "CSV Studio: Export JSON",
+        "icon": "$(json)"
+      },
+      {
+        "command": "csvStudio.exportTsv",
+        "title": "CSV Studio: Export TSV",
+        "icon": "$(export)"
+      },
+      {
+        "command": "csvStudio.addRow",
+        "title": "CSV Studio: Add Row",
+        "icon": "$(add)"
+      },
+      {
+        "command": "csvStudio.addColumn",
+        "title": "CSV Studio: Add Column",
+        "icon": "$(add)"
+      },
+      {
+        "command": "csvStudio.deleteRow",
+        "title": "CSV Studio: Delete Row",
+        "icon": "$(trash)"
+      },
+      {
+        "command": "csvStudio.deleteColumn",
+        "title": "CSV Studio: Delete Column",
+        "icon": "$(trash)"
+      },
+      {
+        "command": "csvStudio.sortAsc",
+        "title": "CSV Studio: Sort Ascending",
+        "icon": "$(arrow-up)"
+      },
+      {
+        "command": "csvStudio.sortDesc",
+        "title": "CSV Studio: Sort Descending",
+        "icon": "$(arrow-down)"
+      },
+      {
+        "command": "csvStudio.toggleFilter",
+        "title": "CSV Studio: Toggle Filter",
+        "icon": "$(filter)"
+      },
+      {
+        "command": "csvStudio.undo",
+        "title": "CSV Studio: Undo",
+        "icon": "$(discard)"
+      },
+      {
+        "command": "csvStudio.redo",
+        "title": "CSV Studio: Redo",
+        "icon": "$(redo)"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "csvStudio.openFile",
+          "when": "resourceExtname =~ /\\.(csv|tsv)$/i",
+          "group": "navigation"
+        }
+      ],
+      "editor/title": [
+        {
+          "command": "csvStudio.reload",
+          "when": "activeCustomEditor == csvStudio.csvEditor",
+          "group": "navigation@1"
+        },
+        {
+          "command": "csvStudio.toggleFilter",
+          "when": "activeCustomEditor == csvStudio.csvEditor",
+          "group": "navigation@2"
+        },
+        {
+          "command": "csvStudio.undo",
+          "when": "activeCustomEditor == csvStudio.csvEditor",
+          "group": "navigation@3"
+        },
+        {
+          "command": "csvStudio.redo",
+          "when": "activeCustomEditor == csvStudio.csvEditor",
+          "group": "navigation@4"
+        }
+      ],
+      "editor/title/context": [
+        {
+          "command": "csvStudio.openFile",
+          "when": "resourceExtname =~ /\\.(csv|tsv)$/i",
+          "group": "1_open"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "csvStudio.undo",
+        "key": "ctrl+z",
+        "mac": "cmd+z",
+        "when": "activeCustomEditor == csvStudio.csvEditor"
+      },
+      {
+        "command": "csvStudio.redo",
+        "key": "ctrl+y",
+        "mac": "cmd+shift+z",
+        "when": "activeCustomEditor == csvStudio.csvEditor"
+      },
+      {
+        "command": "csvStudio.addRow",
+        "key": "ctrl+shift+r",
+        "mac": "cmd+shift+r",
+        "when": "activeCustomEditor == csvStudio.csvEditor"
+      },
+      {
+        "command": "csvStudio.addColumn",
+        "key": "ctrl+shift+c",
+        "mac": "cmd+shift+c",
+        "when": "activeCustomEditor == csvStudio.csvEditor"
+      },
+      {
+        "command": "csvStudio.deleteRow",
+        "key": "ctrl+shift+delete",
+        "mac": "cmd+shift+backspace",
+        "when": "activeCustomEditor == csvStudio.csvEditor"
+      },
+      {
+        "command": "csvStudio.toggleFilter",
+        "key": "ctrl+shift+f",
+        "mac": "cmd+shift+f",
+        "when": "activeCustomEditor == csvStudio.csvEditor"
+      }
+    ],
+    "configuration": {
+      "title": "CSV Studio",
+      "properties": {
+        "csvStudio.delimiter": {
+          "type": "string",
+          "enum": ["auto", ",", ";", "\\t", "|"],
+          "default": "auto",
+          "description": "Field delimiter. Use auto to detect from file extension and content."
+        },
+        "csvStudio.hasHeader": {
+          "type": "boolean",
+          "default": true,
+          "description": "Treat the first row as column headers."
+        },
+        "csvStudio.maxRowsBeforeVirtualScroll": {
+          "type": "number",
+          "default": 5000,
+          "minimum": 100,
+          "maximum": 1000000,
+          "description": "Enable virtual scrolling when row count exceeds this value."
+        },
+        "csvStudio.encoding": {
+          "type": "string",
+          "enum": ["utf8", "latin1", "utf16le"],
+          "default": "utf8",
+          "description": "Text encoding when reading CSV files from disk."
+        },
+        "csvStudio.dateFormat": {
+          "type": "string",
+          "default": "YYYY-MM-DD",
+          "description": "Date format hint for future date cell detection."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src --ext ts",
+    "pretest": "npm run compile",
+    "test": "node ./out/test/csvParser.test.js"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@types/node": "^20.14.2",
+    "@types/vscode": "^1.85.0",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "eslint": "^9.5.0",
+    "typescript": "^5.5.2"
+  }
+}
