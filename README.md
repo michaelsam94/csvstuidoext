@@ -2,7 +2,7 @@
 
 View and edit CSV and TSV files as an interactive spreadsheet inside VS Code.
 
-![CSV Studio screenshot placeholder](https://via.placeholder.com/800x450?text=CSV+Studio+Screenshot)
+![CSV Studio spreadsheet editor in VS Code](docs/screenshot.png)
 
 ## Features
 
