@@ -2,7 +2,7 @@
   "name": "csv-studio",
   "displayName": "CSV Studio",
   "description": "View and edit CSV files as interactive spreadsheets",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "MIT",
   "publisher": "michaelsam94",
   "icon": "icon.png",

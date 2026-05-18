@@ -59,6 +59,14 @@ npm test
 
 Press **F5** to launch the Extension Development Host.
 
+### Release (tag + VSIX on GitHub)
+
+```bash
+./scripts/release.sh 0.1.1
+```
+
+This bumps `package.json`, commits, tags `v*`, pushes to GitHub, and runs the release workflow (`.vsix` attached to the GitHub Release).
+
 ## License
 
 MIT
